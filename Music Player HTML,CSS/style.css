@@ -1,0 +1,337 @@
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.center { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(Website-Backgrounds-For-Desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.widget {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.39) 0px 0px 20px 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.album {
+    width: 100%;
+    height: 100%;
+    background-image: url(WhatsApp\ Image\ 2025-02-26\ at\ 21.59.25_d948f3e1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px) saturate(100%);
+    -webkit-backdrop-filter: blur(5px) saturate(100%);
+    border-radius: 2mm;
+    background: rgba(17, 25, 40, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.details {
+    width: 100%;
+    height: fit-content;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 20px;
+}
+
+.tittle {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.artist {
+    font-size: 16px;
+    font-weight: 200;
+    opacity: 35%;
+}
+
+.btns {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 50%;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#toggle {
+    display: none;
+}
+
+.play-pause-label {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+}
+
+.play-pause-label i {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.play-pause-label .fa-play {
+    opacity: 1;
+}
+
+.play-pause-label .fa-pause {
+    opacity: 0;
+}
+
+#toggle:checked + .btns label .fa-play {
+    opacity: 0;
+}
+
+#toggle:checked + .btns label .fa-pause {
+    opacity: 1;
+}
+
+.play-pause-label:hover {
+    background: rgb(255, 0, 0);
+}
+
+#toggle:not(:checked) ~ .player .progress {
+    animation-play-state: paused;
+}
+
+#toggle:checked ~ .player .progress {
+    animation-play-state: running;
+}
+
+.player {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+.progress {
+    width: 350px;
+    height: 4px;
+    box-sizing: border-box;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    z-index: -1;
+    border-radius: 1mm;
+}
+
+.progress::after {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border: 5px solid rgb(0, 0, 0);
+    animation: move 18s linear infinite;
+}
+
+#toggle:not(:checked) ~ .player .progress {
+    animation-play-state: paused;
+}
+
+#toggle:checked ~ .player .progress {
+    animation-play-state: running;
+}
+
+#toggle:not(:checked) ~ .player .progress::after {
+    animation-play-state: paused;
+}
+
+#toggle:checked ~ .player .progress::after {
+    animation: move 18s linear infinite;
+}
+
+@keyframes move {
+    from { left: 0; }
+    to { left: 100%; }
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 30px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+label {
+    font-size: 18px;
+    color: white;
+    gap: 10px;
+    
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 5px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.9;
+    transition: opacity .15s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #007bff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #007bff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+span {
+    font-size: 18px;
+}
+
+

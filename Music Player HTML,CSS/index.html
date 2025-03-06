@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player Widget</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+  <div class="center">
+    <div class="widget">
+      <div class="album"></div>
+      <div class="controls">
+        <div class="details">
+          <div class="title">Music Player</div><br>
+          <div class="artist">Sahitya Ghosh</div>
+        </div>
+        <input type="checkbox" name="toggle" id="toggle">
+        
+        <div class="btns">
+          <button type="button" class="btn">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+            <label for="toggle" class="play-pause-label">
+            <i class="fa-solid fa-play play"></i>
+            <i class="fa-solid fa-pause pause"></i>
+          </label>
+          <button type="button" class="btn">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+        </div>        
+        <div class="player">
+          <div class="progress" id="progress"></div>
+          <div class="volume-container">
+            <label for="volumeSlider"><i class="fas fa-volume-up"></i></label>
+            <input type="range" id="volumeSlider" min="0" max="100" value="20">
+            <span id="volumeValue"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
